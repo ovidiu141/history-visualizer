@@ -29,11 +29,12 @@ export class AppComponent {
 
   onGo(delta: string) {
     const val = parseInt(delta, 10);
-    const isOutOfBounds = false; // TODO - compute this based on val
+    const newPageIndexValue = this.currentPageIndex + val;
+    const isOutOfBounds = newPageIndexValue < 0 || newPageIndexValue >= this.pages.length;
     if (isOutOfBounds) {
       return;
     }
-    this.currentPageIndex += val;
+    this.currentPageIndex = newPageIndexValue;
     history.go(val);
   }
 
