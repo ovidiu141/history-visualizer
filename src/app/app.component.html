@@ -1,12 +1,17 @@
-<div class="navigation-btns">
-  <button (click)="onBackClick()" [disabled]="currentPageIndex === 0">back</button>
-  <button (click)="onForwardClick()" [disabled]="currentPageIndex === pages.length - 1">forward</button>
-</div>
-
-<div class="history">
-  <div class="page" *ngFor="let page of pages; index as i" [class.selected-page]="i === currentPageIndex">
-
+<div class="container">
+  <div class="left">
+    <div class="navigation-btns">
+      <button (click)="onBackClick()" [disabled]="currentPageIndex === 0">back</button>
+      <button (click)="onForwardClick()" [disabled]="currentPageIndex === pages.length - 1">forward</button>
+    </div>
+  
+    <button class="push-btn" (click)="onPushClick()">Push</button>
+  </div>
+  <div class="right">
+    <div class="history">
+      <div class="el" *ngFor="let page of pages; index as i" [class.selected-el]="i === currentPageIndex">
+        {{page.displayValue}}
+      </div>
+    </div>
   </div>
 </div>
-
-<button class="push-btn" (click)="onPushClick()">Push</button>

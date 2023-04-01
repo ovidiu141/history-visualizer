@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   currentPageIndex: number;
 
-  pages = [
-    { id: this.generateRandomId() },
-  ];
+  pages: { id: string; displayValue: string }[] = [];
 
   constructor() {
     this.currentPageIndex = 0;
@@ -27,9 +25,15 @@ export class AppComponent {
   }
 
   onPushClick() {
-    history.pushState({}, "");
-    this.pages.push({ id: this.generateRandomId() });
+    const newPage = { id: this.generateRandomId(), displayValue: String(this.pages.length + 1) };
+    this.pages.push(newPage);
+    history.pushState(newPage, '');
     this.currentPageIndex = this.pages.length - 1;
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: PopStateEvent) {
+    console.log('Back or Forward button clicked', history.state);
   }
 
   private generateRandomId(): string {

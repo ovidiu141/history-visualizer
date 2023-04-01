@@ -1,19 +1,38 @@
+.container {
+    display: flex;
+
+    .left {
+
+    }
+
+    .right {
+
+    }
+}
+
 .push-btn {
     margin-top: 20px;
 }
 
 .history {
     display: flex;
+    margin: 2px 10px;
+    flex-direction: column-reverse;
+    min-height: 400px;
+    max-height: 820px;
 }
 
-.page {
-    width: 64px;
-    height: 64px;
+.el {
+    width: 80px;
+    height: 28px;
     border: 2px solid red;
-    margin: 4px;
+    margin: 1px 0px;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.selected-page {
+.selected-el {
     border: 2px solid blue;
 }
