@@ -1,3 +1,12 @@
+button {
+    border: 2px solid lightblue;
+    background-color: lavender;
+    border-radius: 8px;
+    height: 30px;
+    font-size: 14px;
+    margin: 2px;
+}
+
 .container {
     display: flex;
 
@@ -5,9 +14,7 @@
         width: 200px;
     }
 
-    .col-2 {
-
-    }
+    .col-2 {}
 
 }
 
@@ -26,16 +33,23 @@
 .el {
     width: 80px;
     height: 28px;
-    border: 2px solid red;
-    margin: 1px 0px;
-    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px 4px;
+    border-color: lightblue;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:last-child {
+        border-radius: 8px 8px 0px 0px;
+        border-width: 2px 4px;
+    }
 }
 
 .selected-el {
-    border: 2px solid blue;
+    border-style: solid;
+    border-width: 2px 4px;
+    border-color: rgb(132, 103, 211);
 }
 
 .navigation-delta {

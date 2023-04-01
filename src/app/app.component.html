@@ -18,8 +18,8 @@
     <h5>Methods:</h5>
     <button class="push-btn" (click)="onPushClick()">Push State</button>
     <div class="navigation-btns">
-      <button (click)="onBackClick()" [disabled]="currentPageIndex === 0">back</button>
-      <button (click)="onForwardClick()" [disabled]="currentPageIndex === pages.length - 1">forward</button>
+      <button (click)="onBackClick()" [disabled]="currentPageIndex === 0">Back</button>
+      <button (click)="onForwardClick()" [disabled]="currentPageIndex === pages.length - 1">Forward</button>
     </div>
     <input type="number" value="0" class="navigation-delta" #deltaInput>
     <button (click)="onGo(deltaInput.value)">Go</button>
