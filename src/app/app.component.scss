@@ -1,13 +1,14 @@
 .container {
     display: flex;
 
-    .left {
+    .col-1 {
+        width: 200px;
+    }
+
+    .col-2 {
 
     }
 
-    .right {
-
-    }
 }
 
 .push-btn {
@@ -35,4 +36,8 @@
 
 .selected-el {
     border: 2px solid blue;
+}
+
+.navigation-delta {
+    width: 40px;
 }

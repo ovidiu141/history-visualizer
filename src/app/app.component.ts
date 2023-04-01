@@ -6,6 +6,9 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+
+  history = history;
+
   currentPageIndex: number;
 
   pages: { id: string; displayValue: string }[] = [];
@@ -24,11 +27,25 @@ export class AppComponent {
     this.currentPageIndex++;
   }
 
+  onGo(delta: string) {
+    const val = parseInt(delta, 10);
+    const isOutOfBounds = false; // TODO - compute this based on val
+    if (isOutOfBounds) {
+      return;
+    }
+    this.currentPageIndex += val;
+    history.go(val);
+  }
+
   onPushClick() {
     const newPage = { id: this.generateRandomId(), displayValue: String(this.pages.length + 1) };
     this.pages.push(newPage);
     history.pushState(newPage, '');
     this.currentPageIndex = this.pages.length - 1;
+  }
+
+  openNewTabWithSameUrl() {
+    window.open(location.href, '_blank');
   }
 
   @HostListener('window:popstate', ['$event'])
