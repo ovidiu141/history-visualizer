@@ -6,6 +6,14 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  /**
+   * TODO:
+   * - limit the number of stack size to ~12 - DONE
+   * - display history state
+   * - add input for push state
+   * - handle replace state action
+   * - make all look better
+   */
 
   history = history;
 
@@ -30,7 +38,8 @@ export class AppComponent {
   onGo(delta: string) {
     const val = parseInt(delta, 10);
     const newPageIndexValue = this.currentPageIndex + val;
-    const isOutOfBounds = newPageIndexValue < 0 || newPageIndexValue >= this.pages.length;
+    const isOutOfBounds =
+      newPageIndexValue < 0 || newPageIndexValue >= this.pages.length;
     if (isOutOfBounds) {
       return;
     }
@@ -39,7 +48,13 @@ export class AppComponent {
   }
 
   onPushClick() {
-    const newPage = { id: this.generateRandomId(), displayValue: String(this.pages.length + 1) };
+    if (this.pages.length >= 12) {
+      return;
+    }
+    const newPage = {
+      id: this.generateRandomId(),
+      displayValue: String(this.pages.length + 1),
+    };
     this.pages.push(newPage);
     history.pushState(newPage, '');
     this.currentPageIndex = this.pages.length - 1;
