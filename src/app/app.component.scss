@@ -1,0 +1,19 @@
+.push-btn {
+    margin-top: 20px;
+}
+
+.history {
+    display: flex;
+}
+
+.page {
+    width: 64px;
+    height: 64px;
+    border: 2px solid red;
+    margin: 4px;
+    border-radius: 8px;
+}
+
+.selected-page {
+    border: 2px solid blue;
+}
