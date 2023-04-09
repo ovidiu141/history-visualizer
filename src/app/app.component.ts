@@ -6,14 +6,6 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  /**
-   * TODO:
-   * - limit the number of stack size to ~12 - DONE
-   * - display history state
-   * - add input for push state
-   * - handle replace state action
-   * - make all look better
-   */
 
   history = history;
 
